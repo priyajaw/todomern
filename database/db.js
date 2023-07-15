@@ -5,12 +5,12 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 
-const USERNAME = process.env.DB_USERNAME;
-const PASSWORD = process.env.DB_PASSWORD;
+// const USERNAME = process.env.DB_USERNAME;
+// const PASSWORD = process.env.DB_PASSWORD;
 
  const Connection = () => {
-     const MONGOOSE_URI = `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.h12hgpi.mongodb.net/?retryWrites=true&w=majority`;
-     mongoose.connect(MONGOOSE_URI, { useNewUrlParser: true });
+    //  const MONGOOSE_URI = `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.h12hgpi.mongodb.net/?retryWrites=true&w=majority`;
+     mongoose.connect(process.env.MONGOOSE_URI, { useNewUrlParser: true });
     mongoose.connection.on('connected', () => {
         console.log('Database connected successfully');
     })
@@ -18,7 +18,7 @@ const PASSWORD = process.env.DB_PASSWORD;
         console.log('Database disconnected ');
     })
     mongoose.connection.on('error', () => {
-        console.log('Error while connecting with database', error.message);
+        console.log('Error while connecting with database');
     })
 }
 
