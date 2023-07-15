@@ -17,7 +17,7 @@ const __dirname = dirname(__filename);
 
 // Your code here
 
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, '/build')));
 app.use('/', route);
 
 const PORT = 3000;
